@@ -25,11 +25,13 @@ function updateTotal() {
     .reduce((total, trx) => total + trx.amount, 0);
 
   const balanceTotal = incomeTotal - expenseTotal;
+  const formattedBalance = formatter.format(balanceTotal);
 
-  balance.textContent = formatter.format(balanceTotal).substring(1);
+  balance.textContent = formattedBalance;
   income.textContent = formatter.format(incomeTotal);
   expense.textContent = formatter.format(expenseTotal * -1);
 }
+
 
 function renderList() {
   list.innerHTML = "";
